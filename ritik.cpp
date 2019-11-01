@@ -47,22 +47,27 @@ void printing()
 
 void makeskiplist()
 {
-	struct Node* temp = tail; int i = 0; struct Node* temp2;
-
-
+	struct Node* temp = tail;
+	int i = 0;
+	struct Node* temp2;
+	struct Node* temp3;
+    int j=0;
+    while(j<6/k){
+        temp3=temp;
 	for (int i = 0; i < k; i++)
 	{
+	    if(temp->prev!=NULL){
 		temp2 = temp->prev;
 		temp->prev = NULL;
 		free(temp->prev);
 		temp = temp2;
-
+	    }
 	}
-	tail->prev = temp2;
-
+	j++;
+	temp3->prev = temp2;
+    }
 
 }
-
 void deleteElement(int d)
 {
 	struct Node* temp = head, * temp5 = head;
