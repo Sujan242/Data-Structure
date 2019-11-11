@@ -45,28 +45,46 @@ void printing()
 
 }
 
+// void makeskiplist()
+// {
+// 	struct Node* temp = tail;
+// 	int i = 0;
+// 	struct Node* temp2;
+// 	struct Node* temp3;
+//     int j=0;
+//     while(j<6/k){
+//         temp3=temp;
+// 	for (int i = 0; i < k; i++)
+// 	{
+// 	    if(temp->prev!=NULL){
+// 		temp2 = temp->prev;
+// 		temp->prev = NULL;
+// 		free(temp->prev);
+// 		temp = temp2;
+// 	    }
+// 	}
+// 	j++;
+// 	temp3->prev = temp2;
+//     }
+
+// }
 void makeskiplist()
 {
-	struct Node* temp = tail;
-	int i = 0;
-	struct Node* temp2;
-	struct Node* temp3;
-    int j=0;
-    while(j<6/k){
-        temp3=temp;
-	for (int i = 0; i < k; i++)
-	{
-	    if(temp->prev!=NULL){
-		temp2 = temp->prev;
-		temp->prev = NULL;
-		free(temp->prev);
-		temp = temp2;
-	    }
-	}
-	j++;
-	temp3->prev = temp2;
-    }
-
+    struct Node* temp=tail;int i=0;struct Node* temp2;
+    
+      
+         for(int i=0;i<k;i++)
+        {
+            temp2=temp->prev;
+            temp->prev=NULL;
+            free(temp->prev);
+            temp=temp2;
+            
+            
+        }
+        tail->prev=temp2;
+     
+    
 }
 void deleteElement(int d)
 {
@@ -230,44 +248,16 @@ void additionwhichmakesperfects(int d) {
 int main()
 {
 
-	insertToLinkedList(4);
-	insertToLinkedList(5);
-	insertToLinkedList(6);
-	insertToLinkedList(7);
-
-
-
+int n;
+    for(int i=0; i<=k; i++){
+        cin >> n;
+        insertToLinkedList(n);
+    }
 	makeskiplist();
-	printing(); cout << endl;
-	insertBeginning(3);
-	backward();
-	printing(); cout << endl;
-	insertBeginning(2);
-
-
-
-	addEnd(8);
-	printing(); cout << endl;
-	backward();
-	addEnd(9);
-	printing(); cout << endl;
-	backward();
-    
-	deleteElement(4);
-	printing(); cout << endl;
-	backward();
-	
-	additionwhichmakesperfects(1);
-	printing(); cout << endl;
-	backward();
-
-    additionwhichmakesperfects(4);
-	printing(); cout << endl;
-	backward();
-	additionwhichmakesperfects(10);
-	printing(); cout << endl;
-	backward();
-	additionwhichmakesperfects(12);
-	printing(); cout << endl;
+	for(int i=k+1; i<1000; i++){
+	    cin >> n;
+	    additionwhichmakesperfects(n);
+	}
+	printing();
 	backward();
 }
